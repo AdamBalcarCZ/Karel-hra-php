@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karel Server</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 50px);
+            gap: 5px;
+            margin: 20px 0;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        .karel {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Karel - Serverová verze</h1>
+    <form method="POST" action="karel.php" id="commands-form">
+        <textarea name="commands" id="commands" rows="10" cols="30" placeholder="Zadejte příkazy..."></textarea>
+        <br>
+        <button type="submit" name="action" value="execute">Spustit</button>
+        <button type="submit" name="action" value="repeat">Spustit znovu</button>
+        <button type="submit" name="action" value="reset">Reset</button>
+    </form>
+    <div id="game-board">
+        <?php include 'karelphp.php';?>
+    </div>
+</body>
+</html>
